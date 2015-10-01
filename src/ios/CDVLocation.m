@@ -135,9 +135,10 @@
     
     // high accuracy, background mode
     locationManager.pausesLocationUpdatesAutomatically = NO;
-    #ifdef __IPHONE_9_0
-    //locationManager.allowsBackgroundLocationUpdates = YES;
-    #endif
+    if ([locationManager respondsToSelector:@selector(allowsBackgroundLocationUpdates)])
+    {
+      locationManager.allowsBackgroundLocationUpdates = YES;
+    }
     locationManager.activityType = CLActivityTypeFitness;
     locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     locationManager.distanceFilter = kCLDistanceFilterNone;
