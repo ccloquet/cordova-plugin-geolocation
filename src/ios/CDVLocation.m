@@ -134,14 +134,14 @@
 #endif
     
     // high accuracy, background mode
-    #ifdef __IPHONE_9_0
+    //#ifdef __IPHONE_9_0
     locationManager.pausesLocationUpdatesAutomatically = NO;
     locationManager.allowsBackgroundLocationUpdates = YES;
     
     locationManager.activityType = CLActivityTypeFitness;
     locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     locationManager.distanceFilter = kCLDistanceFilterNone;
-    #endif
+    //#endif
     // end
     
     // Tell the location manager to start notifying us of location updates. We
@@ -206,7 +206,7 @@
 - (void)locationManager:(CLLocationManager*)manager
      didUpdateLocations:(NSArray*)locations
 {
-    CLLocation* newLocation = [locations lastObject];
+    /*CLLocation* newLocation = [locations lastObject];
 
     CDVLocationData* cData = self.locationData;
     
@@ -225,7 +225,7 @@
     } else {
         // No callbacks waiting on us anymore, turn off listening.
         [self _stopLocation];
-    }
+    }*/
 }
 
 - (void)getLocation:(CDVInvokedUrlCommand*)command
