@@ -134,14 +134,14 @@
 #endif
     
     // high accuracy, background mode
-    //#ifdef __IPHONE_9_0
-    /*locationManager.pausesLocationUpdatesAutomatically = NO;
-    locationManager.allowsBackgroundLocationUpdates = YES;
+    #ifdef __IPHONE_9_0
+    locationManager.pausesLocationUpdatesAutomatically = NO;
+    //locationManager.allowsBackgroundLocationUpdates = YES;
     
     locationManager.activityType = CLActivityTypeFitness;
     locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     locationManager.distanceFilter = kCLDistanceFilterNone;
-    */
+    #endif
     //#endif
     // end
     
@@ -203,7 +203,7 @@
         [self _stopLocation];
     }
 }
-/*
+#ifdef __IPHONE_9_0
 - (void)locationManager:(CLLocationManager*)manager
      didUpdateLocations:(NSArray*)locations
 {
@@ -227,7 +227,8 @@
         // No callbacks waiting on us anymore, turn off listening.
         [self _stopLocation];
     }
-}*/
+}
+#endif
 
 - (void)getLocation:(CDVInvokedUrlCommand*)command
 {
