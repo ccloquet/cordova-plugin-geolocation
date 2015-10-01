@@ -134,11 +134,14 @@
 #endif
     
     // high accuracy, background mode
+    
     locationManager.pausesLocationUpdatesAutomatically = NO;
     locationManager.allowsBackgroundLocationUpdates = YES;
+    #ifdef __IPHONE_9_0
     locationManager.activityType = CLActivityTypeFitness;
     locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     locationManager.distanceFilter = kCLDistanceFilterNone;
+    #endif
     // end
     
     // Tell the location manager to start notifying us of location updates. We
